@@ -1,0 +1,17 @@
+<h1><%= @farmer.name %></h1>
+
+<h3>Cows</h3>
+<ul>
+  <% if @farmer.cows.length > 0 %>
+    <% @farmer.cows.each do |c| %>
+      <li><%= link_to c.name, c %></li>
+    <% end %>
+  <% else %>
+    <p>No cows!</p>
+    <%= link_to "Add Cow", new_cow_path %>
+  <% end %>
+</ul>
+
+<%= link_to "Edit Farmer", edit_farmer_path(@farmer) %>
+<br>
+<%= link_to "Back to All Farmers", farmers_path %>

@@ -1,0 +1,27 @@
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @farmer do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <h3>Add Cows</h3>
+  <%= f.fields_for :cows do |c| %>
+    <%= c.label :cow_name %>
+    <%= c.text_field :name %>
+    <br>
+
+    <%= c.label :number_of_spots %>
+    <%= c.number_field :spots %>
+    <br><br>
+  <% end %>
+  <br>
+
+  <%= f.submit %>
+<% end %>

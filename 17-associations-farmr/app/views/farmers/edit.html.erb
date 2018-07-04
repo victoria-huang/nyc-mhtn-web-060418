@@ -1,0 +1,8 @@
+<h1>Edit <%= @farmer.name %></h1>
+
+<%= render "form" %>
+
+<%= link_to "Cancel", @farmer %>
+
+<br>
+<%= link_to "Delete Farmer", @farmer, method: :delete, data: { confirm: "Really?" } %>
